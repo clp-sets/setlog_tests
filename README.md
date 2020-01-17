@@ -10,6 +10,8 @@ Tests for setlog
 
 # Running all the tests
 
+Assuming that both the `setlog` and `setlog_tests` repo directories are at the same level:
+
 ```bash
 $ cd setlog_tests
 $ logtalk_tester
