@@ -14,7 +14,7 @@
 	]).
 
 	:- uses(user, [
-		rsetlog(Goal, 2000, _, Result, []) as rsetlog(Goal, Result)
+		rsetlog(Goal, 4000, _, Result, []) as rsetlog(Goal, Result)
 	]).
 
 	 test(ra_e001, true(Result == failure), [note(time-Time)]) :-
