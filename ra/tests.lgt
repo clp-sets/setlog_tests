@@ -1,5 +1,5 @@
 
-:- object(tests(_Timeout_),
+:- object(tests,
 	extends(lgtunit)).
 
 	:- info([
@@ -14,7 +14,7 @@
 	]).
 
 	:- uses(user, [
-		rsetlog(Goal, _Timeout_, _, Result, []) as rsetlog(Goal, Result)
+		rsetlog(Goal, 2000, _, Result, []) as rsetlog(Goal, Result)
 	]).
 
 	 test(ra_e001, true(Result == failure), [note(time-Time)]) :-
