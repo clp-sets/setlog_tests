@@ -729,9 +729,9 @@
 				subset(R,cp(A,A)) &
 				id(A,N2) &
 				inv(R,N3) &
-				 subset(N2,R) &
+				subset(N2,R) &
 				inters(R,N3,N4) &
-				subset(N4,N2))
+				subset(N4,N2),false)
 				),
 				Result
 			),
@@ -849,7 +849,7 @@
 				set(A) &
 				inters(R,N3,N4) &
 				subset(N4,N2) &
-				un(R,N3,cp(A,A))) 
+				un(R,N3,cp(A,A)),false) 
 				),
 				Result
 			),
