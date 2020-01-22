@@ -414,7 +414,7 @@
 			Time
 		).
 
-	 test(ra_e031, true(Result == time_out), [note(time-Time)]) :-
+	 test(ra_e031, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog((
 				cp(A,B) = {[X1,Y1]/H} &
