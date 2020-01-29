@@ -1,5 +1,5 @@
 
-:- object(tests,
+:- object(tests(_Entity_),
 	extends(lgtunit)).
 
 	:- info([
@@ -13,12 +13,14 @@
 		benchmark/2
 	]).
 
-	:- uses(user, [
+	:- uses(_Entity_, [
 		rsetlog(Goal, 4000, _, Result, []) as rsetlog(Goal, Result),
 		rsetlog(Goal, 4000, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
 	]).
 
-	 test(tptp_rel_e001, true(Result == failure), [note(time-Time)]) :-
+	cover(setlog).
+
+	test(tptp_rel_e001, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				nun({},X0,X0),
@@ -27,7 +29,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e002, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e002, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				zero(U1,U2,X0,M1) &
@@ -37,7 +39,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e003, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e003, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,cp(U1,U2)) &
@@ -47,7 +49,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e004, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e004, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				top(U1,U2,X0,M1) &
@@ -57,7 +59,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e005, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e005, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,X1) &
@@ -69,7 +71,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e006, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e006, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X0,M1) &
@@ -81,7 +83,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e007, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e007, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,M1,cp(U1,U2)) &
@@ -95,7 +97,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e008, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e008, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,X1,M1) &
@@ -108,7 +110,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e009, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e009, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X0,M1) &
@@ -120,7 +122,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e010, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e010, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X1,M1) &
@@ -132,7 +134,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e011, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e011, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X1,X2,M1) &
@@ -145,7 +147,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e012, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e012, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,X1) &
@@ -158,7 +160,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e013, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e013, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,X1) &
@@ -171,7 +173,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e014, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e014, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -184,7 +186,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e015, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e015, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X1,M1) &
@@ -197,7 +199,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e016, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e016, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -214,7 +216,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e017, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e017, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				rel(X0) &
@@ -224,7 +226,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e018, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e018, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,cp(U1,U2)) &
@@ -236,7 +238,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e019, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e019, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				ncomp(cp(U1,U2),cp(U2,U3),cp(U1,U3)) &
@@ -246,7 +248,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e020, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e020, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -269,7 +271,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e021, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e021, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -291,7 +293,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e022, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e022, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				delay(vec(X0,U2) &
@@ -303,7 +305,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e023, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e023, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				noirules &
@@ -316,7 +318,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e024, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e024, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				ninters(X0,X1,M3) &
@@ -333,7 +335,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e025, true(Result == time_out), [note(time-Time)]) :-
+	test(tptp_rel_e025, true(Result == time_out), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				noirules &
@@ -350,7 +352,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e026, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e026, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				vec(X0,U) &
@@ -366,7 +368,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e027, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e027, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X1,M1) &
@@ -380,7 +382,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e028, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e028, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X1,M1) &
@@ -394,7 +396,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e029, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e029, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(M1,M2) &
@@ -405,7 +407,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e030, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e030, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(U,M2) &
@@ -419,7 +421,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e031, true(Result == time_out), [note(time-Time)]) :-
+	test(tptp_rel_e031, true(Result == time_out), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(U,M2) &
@@ -435,7 +437,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e032, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e032, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(M1,M2) &
@@ -448,7 +450,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e033, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e033, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(M1,M2) &
@@ -464,7 +466,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e034, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e034, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(M1,M2) &
@@ -482,7 +484,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e035, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e035, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				pfun(X0) &
@@ -494,14 +496,14 @@
 			Time
 		).
 
-	 test(tptp_rel_e036, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e036, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inters(X1,X2,M1) &
 				comp(X0,M1,M2) &
 				comp(X0,X1,M3) &
 				comp(X0,X2,M4) &
-				 inters(M3,M4,M5) &
+				inters(M3,M4,M5) &
 				un(M2,M5,M6) &
 				ninters(M3,M4,M6),
 				Result
@@ -509,7 +511,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e037, true(Result == time_out), [note(time-Time)]) :-
+	test(tptp_rel_e037, true(Result == time_out), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				vec(X0,U) &
@@ -526,7 +528,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e038, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e038, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				vec(X0,U) &
@@ -543,7 +545,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e039, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e039, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				vec(X0,U) &
@@ -559,7 +561,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e040, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e040, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				vec(X0,U) &
@@ -576,7 +578,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e041, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e041, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				vec(X0,U) &
@@ -592,7 +594,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e042, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e042, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -608,7 +610,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e043, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e043, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -626,7 +628,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e044, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e044, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				pfun(X0) &
@@ -640,7 +642,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e045, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e045, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X0,M1) &
@@ -653,7 +655,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e046, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e046, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				pfun(X0) &
@@ -667,7 +669,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e047, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e047, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				pfun(X0) &
@@ -681,7 +683,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e050, true(Result == success), [note(time-Time)]) :-
+	test(tptp_rel_e050, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M5) &
@@ -696,7 +698,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e051, true(Result == success), [note(time-Time)]) :-
+	test(tptp_rel_e051, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(U,M4) &
@@ -713,7 +715,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e052, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e052, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				pfun(X0) &
@@ -727,7 +729,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e053, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e053, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				pfun(X0) &
@@ -741,7 +743,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e054, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e054, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X1,M1) &
@@ -759,7 +761,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e055, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e055, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,M1,cp(U1,U2)) &
@@ -777,7 +779,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e056, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e056, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X0,M1) &
@@ -789,7 +791,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e057, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e057, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inters(X1,X2,M1) &
@@ -800,7 +802,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e058, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e058, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,X1) &
@@ -812,7 +814,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e059, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e059, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,X1,M1) &
@@ -823,7 +825,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e060, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e060, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				subset(X0,X1) &
@@ -835,7 +837,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e061, true(Result == time_out), [note(time-Time)]) :-
+	test(tptp_rel_e061, true(Result == time_out), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,cp(U,U),M1) &
@@ -847,7 +849,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e062, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e062, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,X1,M1) &
@@ -857,7 +859,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e063, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e063, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X1,X2,M1) &
@@ -869,7 +871,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e064, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e064, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X1,M1,cp(U1,U2)) &
@@ -888,7 +890,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e065, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e065, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,M1,cp(U1,U2)) &
@@ -904,7 +906,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e066, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e066, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X1,X2,M1) &
@@ -916,7 +918,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e067, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e067, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				id(U2,M2) &
@@ -927,7 +929,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e068, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e068, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,X1,M1) &
@@ -940,7 +942,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e069, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e069, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X0,M1) &
@@ -950,7 +952,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e070, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e070, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,X1,M1) &
@@ -963,7 +965,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e071, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e071, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				comp(X0,X1,M1) &
@@ -976,7 +978,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e072, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e072, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				inv(X0,M1) &
@@ -993,7 +995,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e073, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e073, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,M1,cp(U1,U2)) &
@@ -1004,7 +1006,7 @@
 			Time
 		).
 
-	 test(tptp_rel_e074, true(Result == failure), [note(time-Time)]) :-
+	test(tptp_rel_e074, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(
 				un(X0,M1,cp(U1,U2)) &

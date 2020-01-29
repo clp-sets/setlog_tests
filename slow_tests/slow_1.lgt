@@ -1,5 +1,5 @@
 
-:- object(tests,
+:- object(tests(_Entity_),
 	extends(lgtunit)).
 
 	:- info([
@@ -13,12 +13,14 @@
 		benchmark/2
 	]).
 
-	:- uses(user, [
+	:- uses(_Entity_, [
 		rsetlog(Goal, 7000, _, Result, []) as rsetlog(Goal, Result),
 		rsetlog(Goal, 7000, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
 	]).
 
-	 test(sl_e001, true(Result == failure), [note(time-Time)]) :-
+	cover(setlog).
+
+	test(sl_e001, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(un(N1,N2,N3) & 
 				un(N3,N4,{[X,X],[X,Y],[Y,X],[Y,Y]/M}) & 
@@ -31,7 +33,7 @@
 			Time
 		).
 
-	 test(sl_e002, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e002, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(un(A,B,M1) & 
 				un(M1,M2,U) & 
@@ -59,7 +61,7 @@
 			Time
 		).
 
-	 test(sl_e003, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e003, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(set(X) & 
 				id(X,N1) & 
@@ -76,7 +78,7 @@
 			Time
 		).
 
-	 test(sl_e004, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e004, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(pfun(F) & 
 				subset(F,cp(A,B)) & 
@@ -96,7 +98,7 @@
 			Time
 		).
 
-	 test(sl_e005, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e005, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(un(A,M1,U) & 
 				disj(A,M1) & 
@@ -117,7 +119,7 @@
 			Time
 		).
 
-	 test(sl_e006, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e006, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(un(A,M1,U) & 
 				disj(A,M1) & 
@@ -137,7 +139,7 @@
 			Time
 		).
 
-	 test(sl_e007, true(Result == success), [note(time-Time)]) :-
+	test(sl_e007, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog({X1,X2,X3,X4,X5/B} = {Y1,Y2,Y3,Y4,Y5/A} & 
 				X1 nin {Y1,Y2,Y3,Y4,Y5},
@@ -146,7 +148,7 @@
 			Time
 		).
 
-	 test(sl_e008, true(Result == success), [note(time-Time)]) :-
+	test(sl_e008, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog({X1,X2,X3,X4,X5/B} = {Y1,Y2,Y3,Y4,Y5/A} & 
 				X1 nin {Y1,Y2,Y3,Y4,Y5},
@@ -155,7 +157,7 @@
 			Time
 		).
 
-	 test(sl_e009, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e009, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(nsubset(M3,M4) & 
 				vec(X0,U) & 
@@ -170,7 +172,7 @@
 			Time
 		).
 
-	 test(sl_e010, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e010, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(comp(X0,cp(U,U),M1) & 
 				un(M1,M2,cp(U,U)) & 
@@ -181,7 +183,7 @@
 			Time
 		).
 
-	 test(sl_e011, true(Result == failure), [note(time-Time)]) :-
+	test(sl_e011, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(not(V18,W18) & or(V4,W18,X1) & or(X1,V19,{{}}) &
 				or(V3,V18,X2) & not(V5,W5) & or(X2,W5,{{}}) & 
@@ -286,7 +288,7 @@
 			Time
 		).
 
-	 test(sl_e012, true(Result == success), [note(time-Time)]) :-
+	test(sl_e012, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog({X1,X2,X3,X4,X5,X6/B} = {Y1,Y2,Y3,Y4,Y5,Y6/A} & 
 				X1 nin {Y1,Y2,Y3,Y4,Y5,Y6},
@@ -295,7 +297,7 @@
 			Time
 		).
 
-	 test(sl_e013, true(Result == success), [note(time-Time)]) :-
+	test(sl_e013, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(un(N1,N2,N3) & 
 				un(N3,N4,{[X,X],[X,Y],[Y,X],[Y,Y]/M}) & 
@@ -307,7 +309,7 @@
 			Time
 		).
 
-	 test(sl_e014, true(Result == success), [note(time-Time)]) :-
+	test(sl_e014, true(Result == success), [note(time-Time)]) :-
 		benchmark(
 			rsetlog(comp(X0,cp({W,X,Y,Z},{W,X,Y,Z}),M1) &
 				un(M1,M2,cp({W,X,Y,Z},{W,X,Y,Z})) & 

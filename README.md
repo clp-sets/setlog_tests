@@ -39,3 +39,16 @@ $ swilgt
 ?- cd(test_set_directory).
 ?- {tester}.
 ```
+
+# generating code coverage reports:
+
+```bash
+$ cd setlog_tests
+$ logtalk_tester -g "logtalk_load(os(loader))" -c xml -- logtalk
+```
+
+After, in each test set directory:
+
+```bash
+$ xsltproc -o coverage_report.html coverage_report.xml
+```
