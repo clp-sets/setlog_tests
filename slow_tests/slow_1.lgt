@@ -15,7 +15,7 @@
 
 	:- uses(user, [
 		rsetlog(Goal, 7000, _, Result, []) as rsetlog(Goal, Result),
-		rsetlog(Goal, 4000, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
+		rsetlog(Goal, 7000, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
 	]).
 
 	 test(sl_e001, true(Result == failure), [note(time-Time)]) :-
