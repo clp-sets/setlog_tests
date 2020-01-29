@@ -17,10 +17,25 @@ $ cd setlog_tests
 $ logtalk_tester
 ```
 
+# Running only the fast tests
+
+```bash
+$ cd setlog_tests/fast_tests
+$ logtalk_tester
+```
+
 # Running an individual test set (using e.g. SWI-Prolog)
 
 ```bash
 $ cd test_set_directory
+$ logtalk_tester
+```
+
+# Running a test set manually:
+
+```bash
+$ cd setlog_tests
 $ swilgt
+?- cd(test_set_directory).
 ?- {tester}.
 ```

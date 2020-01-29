@@ -1,7 +1,6 @@
 
 :- initialization((
-	consult('../../setlog/setlog.pl'),
-%	consult('../../setlog/setloglib.slog'),
+	consult('../../../setlog/setlog.pl'),
 	setlog:consult_lib,
 	set_logtalk_flag(report, warnings),
 	logtalk_load(lgtunit(loader)),
