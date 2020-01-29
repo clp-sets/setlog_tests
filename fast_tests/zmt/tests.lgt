@@ -3,9 +3,9 @@
 	extends(lgtunit)).
 
 	:- info([
-		version is 0.1,
+		version is 0.2,
 		author is 'Maximiliano Cristiá, Gianfranco Rossi, and Paulo Moura',
-		date is 2020/01/15,
+		date is 2020/01/29,
 		comment is 'Unit tests for setlog.'
 	]).
 
@@ -14,7 +14,8 @@
 	]).
 
 	:- uses(user, [
-		rsetlog(Goal, 4000, _, Result, []) as rsetlog(Goal, Result)
+		rsetlog(Goal, 4000, _, Result, []) as rsetlog(Goal, Result),
+		rsetlog(Goal, 4000, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
 	]).
 
 	 test(zmt_e001, true(Result == failure), [note(time-Time)]) :-
