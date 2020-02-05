@@ -1,11 +1,14 @@
 
 :- if(catch(os::command_line_arguments([logtalk]),_,fail)).
 
-	:- use_module(library(dialect/sicstus/timeout)).
+	:- if(current_prolog_flag(dialect, swi)).
+		:- use_module(library(dialect/sicstus/timeout)).
+	:- elif(current_prolog_flag(dialect, sicstus)).
+		:- use_module(library(timeout)).
+	:- endif.
 	:- use_module(library(clpfd)).
 	:- use_module(library(clpq)).
 
-	:- op(980,xfx,:).
 	:- op(970,xfy,or).
 	:- op(950,xfy,&).
 	:- op(900,fy,[neg,naf]).
@@ -21,7 +24,9 @@
 		set_logtalk_flag(report, warnings),
 		logtalk_load(lgtunit(loader)),
 		logtalk_load(tests, [hook(lgtunit), optimize(on)]),
-		tests(setlog)::run
+		% use default timeout + 1000 ms to compensate for running
+		% the code in debug mode to collect code coverage data
+		tests(setlog, 5000)::run
 	)).
 
 :- else.
@@ -32,7 +37,7 @@
 		set_logtalk_flag(report, warnings),
 		logtalk_load(lgtunit(loader)),
 		logtalk_load(tests, [hook(lgtunit), optimize(on)]),
-		tests(user)::run
+		tests(user, 4000)::run
 	)).
 
 :- endif.

@@ -1,5 +1,5 @@
 
-:- object(tests(_Entity_),
+:- object(tests(_Entity_, _Timeout_),
 	extends(lgtunit)).
 
 	:- info([
@@ -14,8 +14,8 @@
 	]).
 
 	:- uses(_Entity_, [
-		rsetlog(Goal, 7000, _, Result, []) as rsetlog(Goal, Result),
-		rsetlog(Goal, 7000, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
+		rsetlog(Goal, _Timeout_, _, Result, []) as rsetlog(Goal, Result),
+		rsetlog(Goal, _Timeout_, Constraints, Result, []) as rsetlog(Goal, Constraints, Result)
 	]).
 
 	cover(setlog).
