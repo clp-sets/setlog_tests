@@ -148,7 +148,7 @@
 			Time
 		).
 
-	test(sl_e008, true(Result == success), [note(time-Time)]) :-
+	test(sl_e008, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
 			rsetlog({X1,X2,X3,X4,X5/B} = {Y1,Y2,Y3,Y4,Y5/A} & 
 				X1 nin {Y1,Y2,Y3,Y4,Y5} & 
