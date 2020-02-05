@@ -2,9 +2,9 @@
 	extends(lgtunit)).
 
 	:- info([
-		version is 0.2,
+		version is 0.3,
 		author is 'Maximiliano Cristiá, Gianfranco Rossi, and Paulo Moura',
-		date is 2020/01/29,
+		date is 2020/02/05,
 		comment is 'Unit tests for setlog.'
 	]).
 

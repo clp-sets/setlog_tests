@@ -24,9 +24,9 @@
 		set_logtalk_flag(report, warnings),
 		logtalk_load(lgtunit(loader)),
 		logtalk_load(tests, [hook(lgtunit), optimize(on)]),
-		% use default timeout + 1000 ms to compensate for running
-		% the code in debug mode to collect code coverage data
-		tests(setlog, 5000)::run
+		% use default timeout * 2 to compensate for running the
+		% code in debug mode and collecting code coverage data
+		tests(setlog, 8000)::run
 	)).
 
 :- else.
