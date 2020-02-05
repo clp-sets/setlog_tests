@@ -150,9 +150,28 @@
 
 	test(sl_e008, true(Result == failure), [note(time-Time)]) :-
 		benchmark(
-			rsetlog({X1,X2,X3,X4,X5/B} = {Y1,Y2,Y3,Y4,Y5/A} & 
-				X1 nin {Y1,Y2,Y3,Y4,Y5} & 
-				nun({1},{2},{1,2}),
+			rsetlog(un(A,B,M1) & 
+				un(M1,M2,U) & 
+				disj(M1,M2) & 
+				un(M2,C,M3) & 
+				un(M3,M4,U) & 
+				disj(M3,M4) & 
+				un(C,D,M5) & 
+				un(M5,M6,U) & 
+				disj(M5,M6) & 
+				un(C,M7,U) & 
+				disj(C,M7) & 
+				un(M7,M6,M8) & 
+				un(M8,M13,U) & 
+				disj(M8,M13) & 
+				un(A,M13,M9) & 
+				un(M9,M10,U) & 
+				disj(M9,M10) & 
+				un(M4,M10,M11) & 
+				un(M11,M12,U) & 
+				disj(M11,M12) & 
+				M12 neq C &
+				nun({1},{2},{3}),
 				Result
 			),
 			Time
